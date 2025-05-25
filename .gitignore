@@ -1,0 +1,19 @@
+# Compilados
+/bin/
+
+# IDEs
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Banco de dados local
+banco_rsc.db
+
+# Outros
+*.log
