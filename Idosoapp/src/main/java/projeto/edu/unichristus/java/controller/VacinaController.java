@@ -1,0 +1,48 @@
+package projeto.edu.unichristus.java.controller;
+
+import projeto.edu.unichristus.java.model.Vacina;
+import projeto.edu.unichristus.java.dao.VacinaDAO;
+import java.util.List;
+
+public class VacinaController {
+    private VacinaDAO vacinaDAO;
+
+    public VacinaController() {
+        this.vacinaDAO = new VacinaDAO();
+    }
+
+    public void adicionarVacina(Vacina vacina) {
+        try {
+            vacinaDAO.salvar(vacina);
+        } catch (Exception e) {
+            System.err.println("Erro ao adicionar vacina: " + e.getMessage());
+        }
+    }
+
+    public List<Vacina> listarVacinas() {
+        try {
+            return vacinaDAO.listarTodos();
+        } catch (Exception e) {
+            System.err.println("Erro ao listar vacinas: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public Vacina buscarPorId(int id) {
+        try {
+            return vacinaDAO.buscarPorId(id);
+        } catch (Exception e) {
+            System.err.println("Erro ao buscar vacina: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean removerVacina(int id) {
+        try {
+            return vacinaDAO.remover(id);
+        } catch (Exception e) {
+            System.err.println("Erro ao remover vacina: " + e.getMessage());
+            return false;
+        }
+    }
+}
