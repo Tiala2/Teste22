@@ -1,14 +1,14 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.Idosa;
-import projeto.edu.unichristus.java.dao.IdosaDAO;
+import projeto.edu.unichristus.java.dao.IdosaDAOMySQL;
 import java.util.List;
 
 public class IdosaController {
-    private IdosaDAO idosaDAO;
+    private IdosaDAOMySQL idosaDAO;
 
     public IdosaController() {
-        this.idosaDAO = new IdosaDAO();
+        this.idosaDAO = new IdosaDAOMySQL();
     }
 
     public void adicionarIdosa(Idosa idosa) {

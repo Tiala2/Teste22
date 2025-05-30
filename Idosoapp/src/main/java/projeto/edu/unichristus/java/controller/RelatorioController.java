@@ -1,34 +1,55 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.Relatorio;
-import java.util.ArrayList;
+import projeto.edu.unichristus.java.dao.RelatorioDAOMySQL;
+import projeto.edu.unichristus.java.model.TipoEventoSentinela;
+import projeto.edu.unichristus.java.dao.EventoSentinelaDAOMySQL;
 import java.util.List;
+import java.util.Map;
 
 public class RelatorioController {
-    private List<Relatorio> relatorios;
+    private RelatorioDAOMySQL relatorioDAO;
 
     public RelatorioController() {
-        this.relatorios = new ArrayList<>();
+        this.relatorioDAO = new RelatorioDAOMySQL();
     }
 
-    public void adicionarRelatorio(Relatorio relatorio) {
-        relatorios.add(relatorio);
+    public void adicionarRelatorio(Relatorio relatorio, int prontuarioId) {
+        try {
+            relatorioDAO.salvar(relatorio, prontuarioId);
+        } catch (Exception e) {
+            System.err.println("Erro ao adicionar relatório: " + e.getMessage());
+        }
     }
 
     public List<Relatorio> listarRelatorios() {
-        return new ArrayList<>(relatorios);
+        try {
+            return relatorioDAO.listarTodos();
+        } catch (Exception e) {
+            System.err.println("Erro ao listar relatórios: " + e.getMessage());
+            return null;
+        }
     }
 
     public Relatorio buscarPorId(int id) {
-        for (Relatorio relatorio : relatorios) {
-            if (relatorio.getId() == id) {
-                return relatorio;
-            }
+        try {
+            return relatorioDAO.buscarPorId(id);
+        } catch (Exception e) {
+            System.err.println("Erro ao buscar relatório: " + e.getMessage());
+            return null;
         }
-        return null;
     }
 
     public boolean removerRelatorio(int id) {
-        return relatorios.removeIf(r -> r.getId() == id);
+        try {
+            return relatorioDAO.remover(id);
+        } catch (Exception e) {
+            System.err.println("Erro ao remover relatório: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public Map<TipoEventoSentinela, Double> percentualIdosasPorEvento(List<Integer> idsIdosas, int mes, int ano, EventoSentinelaDAOMySQL eventoDAO) {
+        return relatorioDAO.percentualIdosasPorEvento(idsIdosas, mes, ano, eventoDAO);
     }
 }

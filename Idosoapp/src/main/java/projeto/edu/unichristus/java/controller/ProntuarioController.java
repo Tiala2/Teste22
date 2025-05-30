@@ -1,14 +1,14 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.ProntuarioMedico;
-import projeto.edu.unichristus.java.dao.ProntuarioDAO;
+import projeto.edu.unichristus.java.dao.ProntuarioMedicoDAOMySQL;
 import java.util.List;
 
 public class ProntuarioController {
-    private ProntuarioDAO prontuarioDAO;
+    private ProntuarioMedicoDAOMySQL prontuarioDAO;
 
     public ProntuarioController() {
-        this.prontuarioDAO = new ProntuarioDAO();
+        this.prontuarioDAO = new ProntuarioMedicoDAOMySQL();
     }
 
     public void adicionarProntuario(ProntuarioMedico prontuario) {

@@ -38,14 +38,56 @@ O Recanto do Sagrado Coração (RSC) é uma casa de repouso para idosas que nece
 
 ---
 
+# Apresentação do Trabalho de Extensão
+
+## 1. Links de Referência
+- [Recanto Sagrado Coração (Facebook)](https://www.facebook.com/RECANTOSAGRADOCORA/)
+- [MySQL](https://www.mysql.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## 2. Contextualização
+O projeto visa informatizar o prontuário médico institucional de idosas do Recanto do Sagrado Coração, facilitando o registro, acompanhamento e análise de eventos sentinela, consultas, prescrições, vacinas e relatórios, promovendo maior segurança e qualidade no cuidado.
+
+## 3. Descrição do Problema
+A aplicação deve atender às seguintes funcionalidades:
+- Cadastro e gerenciamento de idosas.
+- Registro de consultas, prescrições, vacinas e eventos sentinela.
+- Geração de relatórios.
+- Persistência dos dados (inicialmente em memória, podendo evoluir para MySQL/PostgreSQL).
+- Interface para controle e visualização dos dados.
+- Testes unitários para garantir a qualidade do código.
+
+## 4. Proposta de Solução/Implementação
+- **Estratégia:** Utilização de arquitetura em camadas (Model, DAO, Controller), separando regras de negócio, persistência e interface.
+- **Estrutura:**
+  - **Modelos:** Representam as entidades do domínio (Idosa, Consulta, EventoSentinela, etc.).
+  - **DAOs:** Responsáveis pela persistência dos dados.
+  - **Controllers:** Intermediam a lógica de negócio e a interface.
+  - **Testes:** Cobrem todos os modelos com JUnit.
+- **Diagramas:** Foram utilizados diagramas de classes para padronizar e alinhar o desenvolvimento.
+
+## 5. Tecnologias Utilizadas
+- **Java** (linguagem principal)
+- **JUnit 4/5** (testes unitários)
+- **Maven** (gerenciamento de dependências e build)
+- **Git/GitHub** (controle de versão)
+- **MySQL/PostgreSQL** (planejado para persistência futura)
+- **VS Code** (IDE)
+
+## 6. Dificuldades e Limitações
+- **Dificuldades técnicas:** Ajuste do ambiente Maven no Windows, conflitos de submódulo Git, padronização dos testes conforme os métodos reais das classes.
+- **Como foram superadas:** Orientação detalhada, comandos específicos para Windows, revisão e alinhamento dos testes.
+- **Limitações:** Persistência atual apenas em memória; integração com banco relacional pode ser implementada futuramente.
+- **Melhorias possíveis:** Interface gráfica/web, relatórios avançados, integração direta com banco de dados.
+
+## 7. Conclusão
+O sistema entregue contempla todos os requisitos iniciais: cadastro, registro, controle e testes das principais entidades do prontuário médico institucional. O código está padronizado, testado e pronto para evoluções, aderente aos objetivos do trabalho de extensão.
+
+---
+
 **Equipe:**
 - [Nome 1]
 - [Nome 2]
 - [Nome 3]
 - [Nome 4]
 - [Nome 5]
-
-**Links úteis:**
-- https://www.facebook.com/RECANTOSAGRADOCORA/
-- https://www.mysql.com/
-- https://www.postgresql.org/

@@ -1,19 +1,19 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.Prescricao;
-import projeto.edu.unichristus.java.dao.PrescricaoDAO;
+import projeto.edu.unichristus.java.dao.PrescricaoDAOMySQL;
 import java.util.List;
 
 public class PrescricaoController {
-    private PrescricaoDAO prescricaoDAO;
+    private PrescricaoDAOMySQL prescricaoDAO;
 
     public PrescricaoController() {
-        this.prescricaoDAO = new PrescricaoDAO();
+        this.prescricaoDAO = new PrescricaoDAOMySQL();
     }
 
-    public void adicionarPrescricao(Prescricao prescricao) {
+    public void adicionarPrescricao(Prescricao prescricao, int prontuarioId) {
         try {
-            prescricaoDAO.salvar(prescricao);
+            prescricaoDAO.salvar(prescricao, prontuarioId);
         } catch (Exception e) {
             System.err.println("Erro ao adicionar prescrição: " + e.getMessage());
         }

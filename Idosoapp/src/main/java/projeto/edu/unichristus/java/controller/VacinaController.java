@@ -1,19 +1,19 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.Vacina;
-import projeto.edu.unichristus.java.dao.VacinaDAO;
+import projeto.edu.unichristus.java.dao.VacinaDAOMySQL;
 import java.util.List;
 
 public class VacinaController {
-    private VacinaDAO vacinaDAO;
+    private VacinaDAOMySQL vacinaDAO;
 
     public VacinaController() {
-        this.vacinaDAO = new VacinaDAO();
+        this.vacinaDAO = new VacinaDAOMySQL();
     }
 
-    public void adicionarVacina(Vacina vacina) {
+    public void adicionarVacina(Vacina vacina, int prontuarioId) {
         try {
-            vacinaDAO.salvar(vacina);
+            vacinaDAO.salvar(vacina, prontuarioId);
         } catch (Exception e) {
             System.err.println("Erro ao adicionar vacina: " + e.getMessage());
         }

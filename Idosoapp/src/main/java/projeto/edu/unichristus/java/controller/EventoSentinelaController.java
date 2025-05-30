@@ -1,19 +1,20 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.EventoSentinela;
-import projeto.edu.unichristus.java.dao.EventoSentinelaDAO;
+import projeto.edu.unichristus.java.dao.EventoSentinelaDAOMySQL;
+import projeto.edu.unichristus.java.model.TipoEventoSentinela;
 import java.util.List;
 
 public class EventoSentinelaController {
-    private EventoSentinelaDAO eventoDAO;
+    private EventoSentinelaDAOMySQL eventoDAO;
 
     public EventoSentinelaController() {
-        this.eventoDAO = new EventoSentinelaDAO();
+        this.eventoDAO = new EventoSentinelaDAOMySQL();
     }
 
-    public void adicionarEvento(EventoSentinela evento) {
+    public void adicionarEvento(EventoSentinela evento, int prontuarioId) {
         try {
-            eventoDAO.salvar(evento);
+            eventoDAO.salvar(evento, prontuarioId);
         } catch (Exception e) {
             System.err.println("Erro ao adicionar evento sentinela: " + e.getMessage());
         }
@@ -43,6 +44,24 @@ public class EventoSentinelaController {
         } catch (Exception e) {
             System.err.println("Erro ao remover evento sentinela: " + e.getMessage());
             return false;
+        }
+    }
+
+    public List<EventoSentinela> listarPorIdosaEPeriodo(int prontuarioId, int mes, int ano) {
+        try {
+            return eventoDAO.listarPorIdosaEPeriodo(prontuarioId, mes, ano);
+        } catch (Exception e) {
+            System.err.println("Erro ao listar eventos sentinela por idosa e período: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public List<EventoSentinela> listarPorTipoEPeriodo(TipoEventoSentinela tipo, int mes, int ano) {
+        try {
+            return eventoDAO.listarPorTipoEPeriodo(tipo, mes, ano);
+        } catch (Exception e) {
+            System.err.println("Erro ao listar eventos sentinela por tipo e período: " + e.getMessage());
+            return null;
         }
     }
 }

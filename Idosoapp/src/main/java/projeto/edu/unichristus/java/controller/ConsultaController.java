@@ -1,14 +1,14 @@
 package projeto.edu.unichristus.java.controller;
 
 import projeto.edu.unichristus.java.model.Consulta;
-import projeto.edu.unichristus.java.dao.ConsultaDAO;
+import projeto.edu.unichristus.java.dao.ConsultaDAOMySQL;
 import java.util.List;
 
 public class ConsultaController {
-    private ConsultaDAO consultaDAO;
+    private ConsultaDAOMySQL consultaDAO;
 
     public ConsultaController() {
-        this.consultaDAO = new ConsultaDAO();
+        this.consultaDAO = new ConsultaDAOMySQL();
     }
 
     public void adicionarConsulta(Consulta consulta) {
