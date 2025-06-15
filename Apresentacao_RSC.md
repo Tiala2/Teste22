@@ -85,9 +85,4 @@ O sistema entregue contempla todos os requisitos iniciais: cadastro, registro, c
 
 ---
 
-**Equipe:**
-- [Nome 1]
-- [Nome 2]
-- [Nome 3]
-- [Nome 4]
-- [Nome 5]
+
