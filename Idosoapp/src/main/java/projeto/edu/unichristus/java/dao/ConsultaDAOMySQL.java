@@ -34,7 +34,7 @@ public class ConsultaDAOMySQL {
             stmt.setString(3, consulta.getTipo());
             stmt.setString(4, consulta.getMotivo());
             stmt.setString(5, consulta.getDiagnostico());
-            stmt.setNull(6, Types.INTEGER); // ajuste se usar prontuario_id
+            stmt.setNull(6, Types.INTEGER); // prontuario_id
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
